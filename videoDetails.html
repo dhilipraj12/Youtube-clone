@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>videoDetails</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./images/icons8-youtube-48.png">
+    <link rel="stylesheet" href="flex.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+         
+        </div>
+        <div class="contentpage">
+            <div class="leftsection">
+                <div class="menusection">
+                    <div class="sidebar">
+                        
+                    </div>
+                    
+
+                </div>
+            </div>
+            <div class="videoDetails">
+                <div class="videoSection"></div>
+                <div class="videoTitle">
+    
+                </div>
+            </div>
+            <div class="subcontent">
+            
+            
+            </div>
+        
+        </div>
+        
+        
+
+
+    </div>
+    
+    <script src="./common/Header.js"></script>
+    <script src="./common/Slider.js"></script>
+    <script>    
+        const url = window.location.href;
+        const videoDetailurl ="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc&key=AIzaSyD8yqXGfcpfxCyX-kWWzKa2dXC_jh57Dh8";
+ 
+        const videoId = url.split("=")[1];
+        const videoIframe = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}?si=bqgrhSpSUMj9NBzX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
+        document.getElementsByClassName("videoSection")[0].innerHTML = videoIframe;
+
+        const fetchVideoData = async()=>{
+            const fetchVideo = await fetch(videoDetailurl);
+            const videoData = await fetchVideo.json();
+            generateVideoHtml(videoData.items);
+        }
+        
+        const generateVideoHtml =(items)=>{
+            let videoData = '';
+            items?.forEach(({snippet,statistics})=>{
+            videoData = `<div class="title">
+                <h3>${snippet.title}</h3>
+                </div>
+                <div class="Count">
+                    <h3>Views: ${statistics.viewCount}</h3>
+                    <div class="likes">
+                       <span id="likeButton" class="material-icons">thumb_up</span> ${statistics.likeCount}
+                       <span id="DislikeButton" class="material-icons">thumb_down</span> ${statistics.likeCount}
+                       <span id="shareButton" class="material-icons">share</span>
+                    </div>
+                </div>`
+            })
+            
+         const getVideos = async()=>{
+        const videoList = await fetch("https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&locale=en_UK&maxResults=50&regionCode=IN&key=AIzaSyD8yqXGfcpfxCyX-kWWzKa2dXC_jh57Dh8");
+        const videoData = await videoList.json();
+        generateVideoHtml(videoData.items);
+       }
+       const trimContent = (content, maxLength) => {
+            return content.length > maxLength ? content.substring(0, maxLength) + '...' : content;
+        }
+
+       const generateVideoHtml = (items)=>{
+        let videoData = '';
+        items?.forEach(({snippet,id}) => {
+            const trimmedChannelTitle = trimContent(snippet.channelTitle, 20);
+                const trimmedTitle = trimContent(snippet.title, 20);
+                const trimmedPublishedAt = trimContent(snippet.publishedAt, 10);
+            videoData+=`<div class="video">
+                        <div class="videothumbnail">
+                            <a href="./videoDetails.html?v=${id}"><img src=${snippet?.thumbnails?.medium?.url} alt=""></a>
+                        </div>
+                        <div class="video_details">
+                            <div class="profile">
+                                <img src="./images/training-on-python.jpg" alt="">
+                            </div>
+                            <div class="title">
+                                <h3>${trimmedChannelTitle}</h3>
+                                <h3>${trimmedTitle}</h3>
+                                <h3>${snippet.publishedAt}</h3>
+                                <a href="">Python Pro</a>
+                            </div>
+                        </div>
+
+                    </div>`
+        });
+        document.getElementsByClassName("subcontent")[0].innerHTML = videoData;
+       }
+
+    
+            console.log(videoData);
+            document.getElementsByClassName("videoTitle")[0].innerHTML = videoData;
+
+
+            getVideos();
+        }
+        fetchVideoData();
+        
+        
+    </script>
+    
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Button Popup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="shareButton">Share</button>
+    <div id="popupBox" class="hidden">
+        <div class="logo"><img src="./images/avatar_g.jpg" alt=""></div>
+
+        <!-- Add more logos as needed -->
+    </div>
+    <script>
+    document.getElementById('shareButton').addEventListener('click', function() {
+        let popupBox = document.getElementById('popupBox');
+        if (popupBox.classList.contains('hidden')) {
+        } else {
+            popupBox.classList.add('hidden');
+        }
+    });
+
+    </script>
+</body>
+</html>
