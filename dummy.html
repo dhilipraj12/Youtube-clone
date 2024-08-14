@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <input type="text" id="inputValue" placeholder="Enter name">
+    <button id="actionButton" onclick="addValues()">Add</button>
+    <ul id="usernames"></ul>
+
+<script>
+    const userNames = [];
+    let currentname = []; 
+    function addValues() {
+        const userinput = document.getElementById('inputValue').value;
+            if (currentname != 0) {
+                userNames[currentname] = userinput;
+                currentname = [];
+                document.getElementById('actionButton').innerText = 'Add';
+            } else {            
+                userNames.push(userinput);
+            }  
+            document.getElementById('inputValue').value = '';
+            generateList(userNames);
+        };
+        const generateList = (userList) => {
+            let listElement = '';
+            userList.forEach((element, index) => {
+                listElement += `<li>${element} 
+                    <button onclick="editName(${index})">Edit</button>
+                    <button onclick="deleteName(${index})">Delete</button>
+                </li>`;
+            });
+            document.getElementById("usernames").innerHTML = listElement;
+        };
+        const deleteName = (index) => {
+            userNames.splice(index, 1);
+            generateList(userNames);
+        };
+        const editName = (index) => {
+            document.getElementById('inputValue').value = userNames[index];
+            currentname = index;
+            document.getElementById('actionButton').innerText = 'updtae';
+        };
+    </script>
+</body>
+</html>

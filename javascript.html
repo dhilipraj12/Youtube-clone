@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./images/icons8-youtube-48.png">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+
+
+
+    <script>
+        const header = document.createElement('div');
+        document.body.appendChild(header);
+
+        const startDiv = document.createElement('div');
+        startDiv.setAttribute("class", "start");
+        startDiv.style.cssText = "width: 200px; display: flex; padding: 0px 7px;";
+        header.style.cssText = "width: 100%; cursor: pointer; font-size: 30px; height: 30px; display: flex; justify-content: space-between; align-items: center; padding: 15px;";
+        header.appendChild(startDiv);
+        const menuIcon = document.createElement("i");
+        menuIcon.setAttribute("class", "material-icons");
+        menuIcon.textContent = "menu";
+        startDiv.appendChild(menuIcon);
+        const logo = document.createElement("img");
+        logo.setAttribute("class", "lb-header__logo lb-header-js-logo lb-header__logo--descending");
+        logo.setAttribute("src", "https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg");
+        logo.style.cssText = "margin-left: 20px; width: 100px";
+        startDiv.appendChild(logo);
+
+        const centerDiv = document.createElement('div');
+        centerDiv.setAttribute("class", "center");
+        header.appendChild(centerDiv);
+        const inputElement = document.createElement("input");
+        inputElement.setAttribute("type", "text");
+        inputElement.setAttribute("placeholder", "Search");
+        centerDiv.appendChild(inputElement);
+        inputElement.style.cssText = "width: 500px; border-radius: 0px; height: 30px; padding: 3px; border: none; font-size: 15px;";
+        const searchIcon = document.createElement("i");
+        searchIcon.setAttribute("class", "material-icons");
+        searchIcon.textContent = "search";
+        centerDiv.appendChild(searchIcon);
+
+        const endDiv = document.createElement('div');
+        endDiv.setAttribute("class", "end");
+        header.appendChild(endDiv);
+        endDiv.style.cssText = "padding: 0px 20px; font-size: 10px;";
+        const videoIcon = document.createElement("i");
+        videoIcon.setAttribute("class", "material-icons");
+        videoIcon.textContent = "videocam";
+        endDiv.appendChild(videoIcon);
+        videoIcon.style.cssText = "padding: 0px 7px;";
+        const appIcon = document.createElement("i");
+        appIcon.setAttribute("class", "material-icons");
+        appIcon.textContent = "apps";
+        endDiv.appendChild(appIcon);
+        appIcon.style.cssText = "padding: 0px 7px;";
+        const notificationIcon = document.createElement("i");
+        notificationIcon.setAttribute("class", "material-icons");
+        notificationIcon.textContent = "notifications";
+        endDiv.appendChild(notificationIcon);
+        notificationIcon.style.cssText = "padding: 0px 7px;";
+        const accountIcon = document.createElement("i");
+        accountIcon.setAttribute("class", "material-icons");
+        accountIcon.textContent = "account_circle";
+        endDiv.appendChild(accountIcon);
+        accountIcon.style.cssText = "padding: 0px 7px;";
+
+
+
+
+    </script>
+</body>
+
+</html>

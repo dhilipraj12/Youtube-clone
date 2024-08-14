@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./sample.css">
+</head>
+<style>
+    /* width */
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey; 
+      border-radius: 10px;
+    }
+     
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: rgb(230, 229, 229); 
+      border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #dad5d5; 
+    }
+    </style>
+
+<body>
+    <div id="heading" class="Heading">
+        <h1>Exploring</h1>
+        <h2>Welcome to Exploring New</h2>
+    </div>
+    <div class="Container">
+        <header class="topheader">
+            <div class="Rightsection">
+                <img src="./images/woods.jpg">
+                <h1>Forests</h1>
+                <h3>Mountains on Earth are a natural feature that has been formed due to tectonic activity,
+                     which is the movement and collision of the Earth's tectonic plates. The formation of mountains
+                    is a complex process that occurs over millions of years,
+                     and their existence serves many important purpose</h3>
+                     <button>Read More</button>
+
+            </div>
+            <div class="leftsection">
+                <img src="./images/avatar_g.jpg">
+                <h1>Avatar</h1>
+                <h3>Just me, myself and I, exploring the universe of uknownment. I have a heart of love and
+                     a interest of lorem ipsum and mauris neque quam blog. I want to share my world with you.</h3>
+                     <button>Read More</button>
+
+            </div>
+            <div class="Downsection">
+                <img src="./images/bridge.jpg">
+                <h1>Bridge</h1>
+                <h3>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id
+                     lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at.
+                      Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum.
+                     Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</h3>
+                     <button>Read More</button>
+            </div>
+            
+        </header>
+        <div class="Postsection">
+            <div class="postheading">
+                <h1>Popular post</h1>
+            </div>
+            <ul class="popularsection">
+                <li class="popularimage">
+                    <img src="./images/gondol.jpg"/>
+                    <p>Gondol</p>
+                    
+                    <hr>
+                </li>
+                <li class="popularimage">
+                    <img src="./images/rock.jpg"/>
+                    <p>Rock</p><hr> 
+                </li>
+                <li class="popularimage">
+                    <img src="./images/workshop.jpg"/>
+                    <p>Workshop</p><hr>
+                </li>
+                <li class="popularimage">
+                    <img src="./images/skies.jpg"/>
+                    <p>Skies</p><hr>
+                </li>
+            </ul>
+                 
+
+        </div>
+    </div>
+
+<footer class="nextpage">
+    <button class="backnext">Previous</button>
+    <button class="backnext">Next>></button>
+</footer>
+<script>
+   var element = document.createElement('div');
+   element.innerHTML ="THis is the first div created using javascript";
+   element.setAttribute("id","content");
+   element.removeAttribute("id");
+   document.getElementById("heading").append(element);
+   var form = document.createElement("form");
+   var inp1 = document.createElement("input");
+   inp1.setAttribute("id","name");
+   inp1.setAttribute("value","Deviprasath");
+   var inp2 = document.createElement("input");
+   inp2.setAttribute("id","age");
+   
+   inp2.setAttribute("value","30");
+   
+   inp1.style.cssText="color: red; font-size: 20px; text-align: center"; 
+   form.append(inp1);
+   form.append(inp2);
+   var inputElement = `<input type="text" id="name" value="HI"/>`
+   
+   console.log(form,"form");;
+   document.getElementById("heading").append(inputElement);
+
+
+   document.getElementsByClassName("Downsection")[0].append(form);
+
+
+</script>
+</body>
+</html>
